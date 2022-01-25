@@ -3,68 +3,72 @@ const { gql } = require("apollo-server-express");
 // All of this data was lifted from the shop-shop module.
 // The only reason it's here is so that the server could start!
 const typeDefs = gql`
-	type Category {
+	type Note {
 		_id: ID
-		name: String
+		text: String
+		username: String
+		latitude: Float
+		longitude: Float
+		createdAt: String
+		date: String
+		comments: [Comment]
 	}
 
-	type Product {
+	type Comment {
 		_id: ID
-		name: String
-		description: String
-		image: String
-		quantity: Int
-		price: Float
-		category: Category
-	}
-
-	type Order {
-		_id: ID
-		purchaseDate: String
-		products: [Product]
+		text: String
+		username: String
+		createdAt: String
 	}
 
 	type User {
 		_id: ID
-		firstName: String
-		lastName: String
+		username: String
 		email: String
-		orders: [Order]
+		notes: [Note]
+		conversations: [Conversation]
 	}
 
 	type Auth {
 		token: ID
 		user: User
 	}
-	type Checkout {
-		session: ID
+
+	type Conversation {
+		_id: ID
+		members: [User]
+		messages: [Message]
+	}
+
+	type Message {
+		_id: ID
+		conversationId: String
+		sender: String
+		text: String
+		date: String
+	}
+
+	type Subscription {
+		newMessageCreated(conversationId: ID!): Message
 	}
 
 	type Query {
-		categories: [Category]
-		products(category: ID, name: String): [Product]
-		product(_id: ID!): Product
-		user: User
-		order(_id: ID!): Order
-		checkout(products: [ID]!): Checkout
+		me: User
+		user(username: String!): User
+		users: [User]
+		notes(username: String): [Note]
+		conversation(conversationId: ID): Conversation
+		myConversations: User
 	}
 
 	type Mutation {
-		addUser(
-			firstName: String!
-			lastName: String!
-			email: String!
-			password: String!
-		): Auth
-		addOrder(products: [ID]!): Order
-		updateUser(
-			firstName: String
-			lastName: String
-			email: String
-			password: String
-		): User
-		updateProduct(_id: ID!, quantity: Int!): Product
+		addUser(username: String!, email: String!, password: String!): Auth
+		updateUser(username: String, email: String, password: String): User
 		login(email: String!, password: String!): Auth
+		addNote(text: String!, latitude: Float!, longitude: Float!): Note
+		addComment(text: String!, noteId: ID!): Note
+		newConversation(username: ID): Conversation
+		newMessage(text: String!, conversationId: ID): Message
 	}
 `;
 

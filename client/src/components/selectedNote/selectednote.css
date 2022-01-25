@@ -1,0 +1,15 @@
+.selectedNote {
+	border: 1px black solid;
+	width: 40vw;
+}
+
+.noteHeader {
+	display: flex;
+	padding: 5px;
+	justify-content: space-around;
+	border-bottom: 1px gray solid;
+}
+
+.noteText {
+	margin: 5px;
+}

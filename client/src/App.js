@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
 // import { StoreProvider } from "./utils/GlobalState";
+import Home from "./pages/Home";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Nav from "./components/Nav";
+import Messenger from "./pages/messenger/Messenger";
 
 const client = new ApolloClient({
 	request: (operation) => {
@@ -15,7 +20,7 @@ const client = new ApolloClient({
 			},
 		});
 	},
-	uri: "/graphql",
+	uri: "http://localhost:3001/graphql",
 });
 
 function App() {
@@ -23,10 +28,14 @@ function App() {
 		<ApolloProvider client={client}>
 			<Router>
 				<div>
-					It's working
 					{/* <StoreProvider> */}
-					{/* <Nav /> */}
-					<Switch>{/* <Route exact path="/" component={Home} /> */}</Switch>
+					<Nav />
+					<Switch>
+						<Route exact path="/" component={Home} />
+						<Route exact path="/signup" component={Signup} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/messenger" component={Messenger} />
+					</Switch>
 					{/* </StoreProvider> */}
 				</div>
 			</Router>
