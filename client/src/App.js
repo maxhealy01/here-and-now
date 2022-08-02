@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Nav from "./components/Nav";
-import Messenger from "./pages/messenger/Messenger";
 
 const client = new ApolloClient({
 	request: (operation) => {
@@ -34,7 +33,6 @@ function App() {
 						<Route exact path="/" component={Home} />
 						<Route exact path="/signup" component={Signup} />
 						<Route exact path="/login" component={Login} />
-						<Route exact path="/messenger" component={Messenger} />
 					</Switch>
 					{/* </StoreProvider> */}
 				</div>

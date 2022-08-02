@@ -65,13 +65,13 @@ const SelectedNote = (selectedNote) => {
 			<div className="noteText">{note.text}</div>
 			<div className="noteBottom">
 				<button onClick={() => setOpenWindow("comment")}>
-					Comments ({comments.length})
+					Comments ({note.comments.length})
 				</button>
 				<button onClick={() => setOpenWindow("message")}>Message</button>
 			</div>
 			{openWindow === "comment" && (
 				<div className="commentWindow">
-					{comments.map((c) => (
+					{note.comments.map((c) => (
 						<div className="commentBody">
 							<div className="commentTop">
 								<div className="commentUsername">{c.username}</div>
