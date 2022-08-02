@@ -24,16 +24,6 @@ export const QUERY_ME = gql`
 					createdAt
 				}
 			}
-			conversations {
-				members {
-					username
-					_id
-				}
-				messages {
-					text
-					sender
-				}
-			}
 		}
 	}
 `;
@@ -51,27 +41,6 @@ export const QUERY_NOTES = gql`
 				text
 				createdAt
 				username
-			}
-		}
-	}
-`;
-
-export const MY_CONVOS = gql`
-	query {
-		myConversations {
-			username
-			conversations {
-				_id
-				members {
-					_id
-					username
-				}
-				messages {
-					_id
-					sender
-					text
-					date
-				}
 			}
 		}
 	}

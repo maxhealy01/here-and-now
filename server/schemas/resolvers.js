@@ -1,9 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Note, Conversation, Message } = require("../models");
+const { User, Note } = require("../models");
 const { signToken } = require("../utils/auth");
-const { PubSub, withFilter } = require("graphql-subscriptions");
-
-const pubsub = new PubSub();
 
 const resolvers = {
 	Query: {
@@ -28,30 +25,6 @@ const resolvers = {
 		notes: async (parent, { username }) => {
 			const params = username ? { username } : {};
 			return Note.find(params).sort({ createdAt: -1 });
-		},
-		conversation: async (parent, { conversationId }, context) => {
-			const conversation = await Conversation.findById(conversationId).populate(
-				"messages"
-			);
-
-			return conversation;
-		},
-		myConversations: async (parent, args, context) => {
-			if (context.user) {
-				const userData = await User.findById(context.user._id)
-					.select("-__v -password")
-					.populate({
-						path: "conversations",
-						populate: { path: "messages", model: "Message" },
-					})
-					.populate({
-						path: "conversations",
-						populate: { path: "members", model: "User" },
-					});
-
-				return userData;
-			}
-			throw new AuthenticationError("Not logged in!");
 		},
 	},
 	// 	me: User
@@ -122,74 +95,7 @@ const resolvers = {
 			}
 			throw new AuthenticationError("You need to be logged in!");
 		},
-		newConversation: async (parent, { username }, context) => {
-			if (context.user) {
-				const conversation = await Conversation.create({
-					members: [username, context.user._id],
-				});
-				await User.findByIdAndUpdate(
-					{ _id: context.user._id },
-					{ $push: { conversations: conversation._id } },
-					{ new: true }
-				);
-
-				await User.findByIdAndUpdate(
-					{ _id: username },
-					{ $push: { conversations: conversation._id } },
-					{ new: true }
-				);
-
-				return conversation.populate("members");
-			}
-		},
-		newMessage: async (parent, { conversationId, text }, context) => {
-			if (context.user) {
-				const message = await Message.create({
-					conversationId: conversationId,
-					text: text,
-					sender: context.user.username,
-				});
-				await Conversation.findByIdAndUpdate(
-					{ _id: conversationId },
-					{ $push: { messages: message._id } },
-					{ new: true }
-				);
-				pubsub.publish("message", {
-					newMessageCreated: message.conversationId,
-				});
-				// return postController.newMessage(message);
-				return message;
-			}
-		},
-	},
-	Subscription: {
-		newMessageCreated: {
-			subscribe: withFilter(
-				() => pubsub.asyncIterator("message"),
-				(payload, variables) => {
-					return (
-						payload.newMessageCreated.conversationId ===
-						variables.conversationId
-					);
-				}
-			),
-		},
 	},
 };
-// 		addNote: async (parent, args, context) => {
-// 			if (context.user) {
-// 				const note = await Note.create({
-// 					...args,
-// 					username: context.user.username,
-// 				});
-// 				await User.findByIdAndUpdate(
-// 					{ _id: context.user._id },
-// 					{ $push: { notes: note._id } },
-// 					{ new: true }
-// 				);
-
-// 				return note;
-// 			}
-// 		},
 
 module.exports = resolvers;

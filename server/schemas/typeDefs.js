@@ -34,24 +34,6 @@ const typeDefs = gql`
 		user: User
 	}
 
-	type Conversation {
-		_id: ID
-		members: [User]
-		messages: [Message]
-	}
-
-	type Message {
-		_id: ID
-		conversationId: String
-		sender: String
-		text: String
-		date: String
-	}
-
-	type Subscription {
-		newMessageCreated(conversationId: ID!): Message
-	}
-
 	type Query {
 		me: User
 		user(username: String!): User
@@ -67,8 +49,6 @@ const typeDefs = gql`
 		login(email: String!, password: String!): Auth
 		addNote(text: String!, latitude: Float!, longitude: Float!): Note
 		addComment(text: String!, noteId: ID!): Note
-		newConversation(username: ID): Conversation
-		newMessage(text: String!, conversationId: ID): Message
 	}
 `;
 

@@ -48,25 +48,3 @@ export const ADD_COMMENT = gql`
 		}
 	}
 `;
-
-export const SEND_MESSAGE = gql`
-	mutation newMessage($text: String!, $conversationId: ID) {
-		newMessage(text: $text, conversationId: $conversationId) {
-			conversationId
-			text
-			sender
-		}
-	}
-`;
-
-export const NEW_CONVO = gql`
-	mutation newConversation($username: ID) {
-		newConversation(username: $username) {
-			_id
-			members {
-				_id
-				username
-			}
-		}
-	}
-`;
