@@ -1,5 +1,5 @@
 :root {
-	--primary: #232f3e;
+	--primary: #38037d;
 	--secondary: #f3a847;
 	--tertiary: #b12704;
 	--light: #fafafa;
@@ -21,7 +21,7 @@ body {
 body {
 	margin: 0;
 	padding: 0;
-	font-family: "Karla", sans-serif;
+	font-family: "Helvetica", sans-serif;
 	font-weight: 400;
 	line-height: 1.5;
 	font-size: 16px;
@@ -34,9 +34,9 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Rubik", sans-serif;
+	font-family: "Apple Chancery", cursive;
 	font-weight: 500;
-	margin: 5px 0;
+	margin: 5px;
 	line-height: 1.25;
 }
 
