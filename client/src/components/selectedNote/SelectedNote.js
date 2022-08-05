@@ -5,12 +5,14 @@ import TimeAgo from "timeago-react";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_COMMENT } from "../../utils/mutations";
 
-const SelectedNote = (selectedNote) => {
-	const note = selectedNote.selectedNote;
+import Comment from "../comment/Comment";
+
+const SelectedNote = ({ selectedNote, setSelectedNote }) => {
+	const note = selectedNote;
 	const time = ObjectId(note._id).getTimestamp();
 
-	// Set logic for displaying either the Comment or Message input depending on the button clicked
-	const [openWindow, setOpenWindow] = useState("");
+	// Set logic for displaying the Comments and input form
+	const [openComments, setOpenComments] = useState(false);
 
 	const [userId, setId] = useState("");
 
@@ -42,23 +44,24 @@ const SelectedNote = (selectedNote) => {
 			<div className="noteHeader">
 				<div className="noteHeaderItem">{note.username}</div>
 				<TimeAgo className="noteHeaderItem" datetime={time} />
+				{/* <button
+					className="ex-off noteHeaderItem"
+					onClick={() => setSelectedNote("")}
+				>
+					X
+				</button> */}
 			</div>
 			<div className="noteText">{note.text}</div>
 			<div className="noteBottom">
-				<button onClick={() => setOpenWindow("comment")}>
+				<button onClick={() => setOpenComments(!openComments)}>
 					Comments ({note.comments.length})
 				</button>
 			</div>
-			{openWindow === "comment" && (
+			{openComments && (
 				<div className="commentWindow">
-					{note.comments.map((c) => (
-						<div className="commentBody">
-							<div className="commentTop">
-								<div className="commentUsername">{c.username}</div>
-							</div>
-							<div className="commentText">{c.text}</div>
-						</div>
-					))}
+					{note.comments.map((c, index) => {
+						return <Comment c={c} index={index} />;
+					})}
 					<textarea
 						className="commentInput"
 						placeholder="Leave a comment!"

@@ -12,10 +12,6 @@ const WrappedMap = withScriptjs(
 			defaultZoom={15}
 			defaultCenter={{ lat: props.lat, lng: props.long }}
 		>
-			{/* {props.isMarkerShown && (
-				<Marker position={{ lat: props.lat, lng: props.long }} />
-				
-			)} */}
 			{props.notes.map((note) => {
 				return (
 					<Marker

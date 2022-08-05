@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { ADD_NOTE, ADD_COMMENT } from "../utils/mutations";
-import { QUERY_NOTES } from "../utils/queries";
-import WrappedMap from "../components/Map";
-import NoteForm from "../components/NoteForm";
-import SelectedNote from "../components/selectedNote/SelectedNote";
+import { ADD_NOTE, ADD_COMMENT } from "../../utils/mutations";
+import { QUERY_NOTES } from "../../utils/queries";
+import WrappedMap from "../../components/Map";
+import NoteForm from "../../components/noteForm/NoteForm";
+import SelectedNote from "../../components/selectedNote/SelectedNote";
+
+import "./Home.css";
 
 const Home = () => {
 	const [latitude, setLatitude] = useState("");
@@ -31,10 +33,19 @@ const Home = () => {
 						containerElement={<div style={{ height: `400px` }} />}
 						mapElement={<div style={{ height: `100%` }} />}
 					/>
-					<NoteForm lat={latitude} long={longitude} data={data} />
 				</>
 			)}
-			{selectedNote && <SelectedNote selectedNote={selectedNote} />}
+			<div className="notesOrComments">
+				{latitude && data && !selectedNote && (
+					<NoteForm lat={latitude} long={longitude} data={data} />
+				)}
+				{selectedNote && (
+					<SelectedNote
+						selectedNote={selectedNote}
+						setSelectedNote={setSelectedNote}
+					/>
+				)}
+			</div>
 		</div>
 	);
 };

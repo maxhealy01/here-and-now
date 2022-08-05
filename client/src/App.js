@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
 // import { StoreProvider } from "./utils/GlobalState";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Nav from "./components/Nav";

@@ -26,12 +26,6 @@ const userSchema = new Schema(
 				ref: "Note",
 			},
 		],
-		conversations: [
-			{
-				type: Schema.Types.ObjectId,
-				ref: "Conversation",
-			},
-		],
 	},
 	{
 		toJSON: {

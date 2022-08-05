@@ -77,6 +77,13 @@ const resolvers = {
 				);
 
 				return note;
+			} else {
+				const note = await Note.create({
+					...args,
+					username: "anonymous",
+				});
+
+				return note;
 			}
 		},
 		addComment: async (parent, { noteId, text }, context) => {
@@ -86,6 +93,18 @@ const resolvers = {
 					{
 						$push: {
 							comments: { text: text, username: context.user.username },
+						},
+					},
+					{ new: true, runValidators: true }
+				);
+
+				return updatedNote;
+			} else {
+				const updatedNote = await Note.findOneAndUpdate(
+					{ _id: noteId },
+					{
+						$push: {
+							comments: { text: text, username: "anonymous" },
 						},
 					},
 					{ new: true, runValidators: true }

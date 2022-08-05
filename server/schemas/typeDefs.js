@@ -26,7 +26,6 @@ const typeDefs = gql`
 		username: String
 		email: String
 		notes: [Note]
-		conversations: [Conversation]
 	}
 
 	type Auth {
@@ -39,8 +38,6 @@ const typeDefs = gql`
 		user(username: String!): User
 		users: [User]
 		notes(username: String): [Note]
-		conversation(conversationId: ID): Conversation
-		myConversations: User
 	}
 
 	type Mutation {
