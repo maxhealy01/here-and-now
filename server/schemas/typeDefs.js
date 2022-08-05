@@ -1,7 +1,5 @@
 const { gql } = require("apollo-server-express");
 
-// All of this data was lifted from the shop-shop module.
-// The only reason it's here is so that the server could start!
 const typeDefs = gql`
 	type Note {
 		_id: ID
