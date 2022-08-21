@@ -1,0 +1,9 @@
+.commentForm {
+	text-align: center;
+	margin-top: 0.5rem;
+}
+
+.commentInput {
+	width: 80%;
+	height: 3rem;
+}

@@ -26,15 +26,17 @@ const NoteForm = ({ lat, long }) => {
 	};
 
 	return (
-		<form onSubmit={handleFormSubmit}>
-			<textarea
-				className="noteTextarea"
-				placeholder="Write a note that will appear on the map!"
-				value={noteText}
-				onChange={handleChange}
-			/>
-			<button type="submit">Submit</button>
-		</form>
+		<div className="formContainer">
+			<form onSubmit={handleFormSubmit}>
+				<textarea
+					className="noteTextarea"
+					placeholder="Write a note that will appear on the map!"
+					value={noteText}
+					onChange={handleChange}
+				/>
+				<button type="submit">Post</button>
+			</form>
+		</div>
 	);
 };
 

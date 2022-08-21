@@ -27,14 +27,12 @@ function App() {
 		<ApolloProvider client={client}>
 			<Router>
 				<div>
-					{/* <StoreProvider> */}
 					<Nav />
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/signup" component={Signup} />
 						<Route exact path="/login" component={Login} />
 					</Switch>
-					{/* </StoreProvider> */}
 				</div>
 			</Router>
 		</ApolloProvider>

@@ -5,6 +5,7 @@ import TimeAgo from "timeago-react";
 
 import Comment from "../comment/Comment";
 import CommentForm from "../commentForm/CommentForm";
+import { useEffect } from "react";
 
 const SelectedNote = ({ selectedNote, setSelectedNote }) => {
 	const note = selectedNote;
@@ -18,6 +19,12 @@ const SelectedNote = ({ selectedNote, setSelectedNote }) => {
 	const buttonText = openComments
 		? "Hide Comments"
 		: `Show Comments ${comments.length}`;
+
+	// Close the comments when the selected note changes
+	useEffect(() => {
+		setComments(selectedNote.comments);
+		setOpenComments(false);
+	}, [selectedNote]);
 
 	return (
 		<div className="selectedNote">

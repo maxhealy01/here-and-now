@@ -1,9 +1,11 @@
+.formContainer {
+	width: 75vw;
+	margin: auto;
+	text-align: center;
+}
+
 .noteTextarea {
 	margin-top: 6px;
 	width: 75vw;
 	height: 5rem;
-}
-
-button {
-	margin: auto;
 }

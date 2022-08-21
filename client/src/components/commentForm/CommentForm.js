@@ -3,6 +3,8 @@ import { useMutation, useQuery } from "@apollo/react-hooks";
 import { ADD_COMMENT } from "../../utils/mutations";
 import { QUERY_ME } from "../../utils/queries";
 
+import "./CommentForm.css";
+
 const CommentForm = ({
 	comment,
 	comments,
@@ -38,15 +40,21 @@ const CommentForm = ({
 
 	return (
 		<>
-			<textarea
-				className="commentInput"
-				placeholder="Leave a comment!"
-				onChange={(e) => setComment(e.target.value)}
-				value={comment}
-			/>
-			<button className="commentSubmitButton" onClick={handleCommentSubmit}>
-				Post
-			</button>
+			<div className="commentForm">
+				<div>
+					<textarea
+						className="commentInput"
+						placeholder="Leave a comment!"
+						onChange={(e) => setComment(e.target.value)}
+						value={comment}
+					/>
+				</div>
+				<div>
+					<button className="commentSubmitButton" onClick={handleCommentSubmit}>
+						Post
+					</button>
+				</div>
+			</div>
 		</>
 	);
 };

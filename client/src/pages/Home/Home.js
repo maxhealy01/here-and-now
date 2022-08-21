@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useMutation, useQuery } from "@apollo/react-hooks";
-import { ADD_NOTE, ADD_COMMENT } from "../../utils/mutations";
+import { useQuery } from "@apollo/react-hooks";
 import { QUERY_NOTES } from "../../utils/queries";
 import WrappedMap from "../../components/Map";
 import NoteForm from "../../components/noteForm/NoteForm";
@@ -21,7 +20,7 @@ const Home = () => {
 	return (
 		<div>
 			{latitude && data && (
-				<>
+				<div className="map">
 					<WrappedMap
 						setSelectedNote={setSelectedNote}
 						notes={data.notes}
@@ -33,7 +32,7 @@ const Home = () => {
 						containerElement={<div style={{ height: `400px` }} />}
 						mapElement={<div style={{ height: `100%` }} />}
 					/>
-				</>
+				</div>
 			)}
 			<div className="notesOrComments">
 				{latitude && data && !selectedNote && (

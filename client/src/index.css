@@ -1,9 +1,9 @@
 :root {
-	--primary: #232f3e;
-	--secondary: #f3a847;
-	--tertiary: #b12704;
+	--primary: #b5d6b2;
+	--secondary: #fffacc;
+	--tertiary: #ffefbd;
 	--light: #fafafa;
-	--dark: #272f32;
+	--dark: #53131e;
 	--error: rgb(228, 46, 1);
 	--spacing-one: calc(1rem * 0.5);
 	--spacing-two: calc(1rem);
@@ -16,6 +16,7 @@
 html,
 body {
 	min-height: 100%;
+	background-color: var(--primary);
 }
 
 body {
@@ -84,7 +85,7 @@ header {
 }
 
 header a {
-	color: var(--light);
+	color: var(--dark);
 }
 
 button {
@@ -92,11 +93,12 @@ button {
 	text-decoration: none;
 	padding: 0.25rem 1rem;
 	border-radius: 0.5rem;
-	border: none;
+	border: 1px solid var(--dark);
 	outline: none;
 	cursor: pointer;
 	margin: 0 1px;
-	background-color: var(--secondary);
+	background-color: var(--dark);
+	color: var(--secondary);
 }
 
 button:hover {
@@ -197,6 +199,12 @@ input:focus {
 
 .error-text {
 	color: var(--error);
+}
+
+textarea,
+input {
+	background-color: var(--secondary);
+	color: var(--dark);
 }
 
 @media screen and (max-width: 768px) {
