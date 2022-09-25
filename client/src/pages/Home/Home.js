@@ -36,7 +36,7 @@ const Home = () => {
 			)}
 			<div className="notesOrComments">
 				{latitude && data && !selectedNote && (
-					<NoteForm lat={latitude} long={longitude} data={data} />
+					<NoteForm lat={latitude} long={longitude} />
 				)}
 				{selectedNote && (
 					<SelectedNote

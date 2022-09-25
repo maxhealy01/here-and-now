@@ -18,8 +18,7 @@ const NoteForm = ({ lat, long }) => {
 			await addNote({
 				variables: { text: noteText, latitude: lat, longitude: long },
 			});
-			setText("");
-			window.location.reload(false);
+			// window.location.reload(false);
 		} catch (e) {
 			console.error(e);
 		}

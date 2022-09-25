@@ -7,6 +7,8 @@ import ApolloClient from "apollo-boost";
 import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile/Profile";
+
 import Nav from "./components/Nav";
 
 const client = new ApolloClient({
@@ -30,6 +32,7 @@ function App() {
 					<Nav />
 					<Switch>
 						<Route exact path="/" component={Home} />
+						<Route exact path="/profile" component={Profile} />
 						<Route exact path="/signup" component={Signup} />
 						<Route exact path="/login" component={Login} />
 					</Switch>
