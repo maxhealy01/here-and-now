@@ -5,11 +5,11 @@ import ApolloClient from "apollo-boost";
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
 // import { StoreProvider } from "./utils/GlobalState";
 import Home from "./pages/Home/Home";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
 import Profile from "./pages/Profile/Profile";
 
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
 
 const client = new ApolloClient({
 	request: (operation) => {

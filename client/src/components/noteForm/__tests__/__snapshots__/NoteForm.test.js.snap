@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoteForm component matches snapshot DOM node structure 1`] = `
+<DocumentFragment>
+  <div
+    class="formContainer"
+  >
+    <form>
+      <textarea
+        class="noteTextarea"
+        placeholder="Write a note that will appear on the map!"
+      />
+      <button
+        type="submit"
+      >
+        Post
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
