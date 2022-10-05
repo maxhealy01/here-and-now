@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./selectednote.css";
-import { ObjectId } from "mongodb";
 import TimeAgo from "timeago-react";
 
 import Comment from "../Comment/Comment";
 import CommentForm from "../CommentForm/CommentForm";
 import { useEffect } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.bubble.css";
 
 const SelectedNote = ({ selectedNote, setSelectedNote }) => {
 	const note = selectedNote;
@@ -16,9 +17,6 @@ const SelectedNote = ({ selectedNote, setSelectedNote }) => {
 
 	// Set logic for displaying the Comments and input form
 	const [openComments, setOpenComments] = useState(false);
-	const buttonText = openComments
-		? "Hide Comments"
-		: `Show Comments ${comments.length}`;
 
 	// Close the comments when the selected note changes
 	useEffect(() => {
@@ -38,16 +36,16 @@ const SelectedNote = ({ selectedNote, setSelectedNote }) => {
 					X
 				</button>
 			</div>
-			<div className="noteText">{note.text}</div>
+			<ReactQuill readOnly={true} value={note.text} theme={"bubble"} disable />
 			<div className="noteBottom">
 				<button onClick={() => setOpenComments(!openComments)}>
-					{buttonText}
+					{openComments ? "Hide Comments" : `Show ${comments.length} Comments`}
 				</button>
 			</div>
 			{openComments && (
 				<div className="commentWindow">
 					{comments.map((c, index) => {
-						return <Comment c={c} index={index} />;
+						return <Comment key={c._id} c={c} index={index} />;
 					})}
 					<CommentForm
 						comments={comments}

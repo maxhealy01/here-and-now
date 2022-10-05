@@ -40,7 +40,7 @@ const CommentForm = ({
 
 	return (
 		<>
-			<div className="commentForm">
+			<div className="commentForm center">
 				<div>
 					<textarea
 						className="commentInput"

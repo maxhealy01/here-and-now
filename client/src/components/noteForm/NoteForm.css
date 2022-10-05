@@ -1,11 +1,31 @@
 .formContainer {
 	width: 75vw;
 	margin: auto;
-	text-align: center;
 }
 
+.button {
+	display: block;
+	margin: 0 auto;
+}
 .noteTextarea {
 	margin-top: 6px;
 	width: 75vw;
-	height: 5rem;
+	/* height: 5rem; */
+}
+#rte {
+	background-color: #cfb259;
+	border: 1px var(--dark) solid;
+}
+.quill {
+	background-color: var(--tertiary);
+	border: 1px var(--dark) solid;
+	border-top: none;
+	color: var(--dark);
+}
+
+@media screen and (max-width: 768px) {
+	.formContainer {
+		width: 90vw;
+		margin: auto;
+	}
 }

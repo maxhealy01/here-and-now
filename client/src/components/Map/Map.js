@@ -22,9 +22,9 @@ const WrappedMap = withScriptjs(
 				const timeAgo = format(time);
 				let iconUrl;
 
-				if (timeAgo.includes("year")) {
+				if (timeAgo.includes("month")) {
 					iconUrl = "https://maps.google.com/mapfiles/ms/icons/red.png";
-				} else if (timeAgo.includes("month")) {
+				} else if (timeAgo.includes("week")) {
 					iconUrl = "https://maps.google.com/mapfiles/ms/icons/orange.png";
 				} else if (timeAgo.includes("day")) {
 					iconUrl = "https://maps.google.com/mapfiles/ms/icons/yellow.png";
@@ -33,6 +33,7 @@ const WrappedMap = withScriptjs(
 				}
 				return (
 					<Marker
+						key={note._id}
 						icon={iconUrl}
 						position={{ lat: note.latitude, lng: note.longitude }}
 						onClick={() => props.setSelectedNote(note)}

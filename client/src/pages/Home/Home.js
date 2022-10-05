@@ -15,7 +15,7 @@ const Home = () => {
 	const [selectedNote, setSelectedNote] = useState("");
 
 	// Create logic for the button that asks for a user's location
-	const [locationKnown, setLocationKnown] = useState(true);
+	const [locationKnown, setLocationKnown] = useState(false);
 
 	const handleLocation = (e) => {
 		navigator.geolocation.getCurrentPosition(function (position) {

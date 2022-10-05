@@ -9,6 +9,8 @@
 }
 
 .noteHeader {
+	background-color: #cfb259;
+	border-radius: 5% 5% 0 0;
 	display: flex;
 	padding: 5px;
 	justify-content: space-around;
@@ -30,9 +32,19 @@
 	width: 0.5rem;
 }
 
+.quill {
+	border: none;
+}
+
 .noteBottom {
 	position: relative;
 	margin: auto;
 	text-align: center;
-	border-bottom: 1px solid var(--dark);
+	padding: 3px 0 3px 0;
+}
+
+@media screen and (max-width: 768px) {
+	.selectedNote {
+		width: 80vw;
+	}
 }
