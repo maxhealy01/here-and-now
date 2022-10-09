@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/react-hooks";
 import { ADD_NOTE } from "../../utils/mutations";
 import "./NoteForm.css";
 import { RichTextEditor } from "@mantine/rte";
+import { ObjectId } from "mongodb";
 
 const NoteForm = ({ lat, long, setNotes, notes }) => {
 	const [noteText, onChange] = useState("");
@@ -22,6 +23,8 @@ const NoteForm = ({ lat, long, setNotes, notes }) => {
 			setNotes([
 				...notes,
 				{
+					_id: ObjectId().toString(),
+
 					text: noteText,
 					latitude: lat,
 					longitude: long,
