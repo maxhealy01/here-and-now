@@ -36,7 +36,13 @@ const SelectedNote = ({ selectedNote, setSelectedNote }) => {
 					X
 				</button>
 			</div>
-			<ReactQuill readOnly={true} value={note.text} theme={"bubble"} disable />
+			<ReactQuill
+				className="no-border"
+				readOnly={true}
+				value={note.text}
+				theme={"bubble"}
+				disable
+			/>
 			<div className="noteBottom">
 				<button onClick={() => setOpenComments(!openComments)}>
 					{openComments ? "Hide Comments" : `Show ${comments.length} Comments`}

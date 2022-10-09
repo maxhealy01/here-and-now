@@ -6,15 +6,596 @@ exports[`NoteForm component matches snapshot DOM node structure 1`] = `
     class="formContainer"
   >
     <form>
-      <textarea
+      <div
         class="noteTextarea"
-        placeholder="Write a note that will appear on the map!"
       />
-      <button
-        type="submit"
+      <div
+        class="mantine-RichTextEditor-root mantine-1qycoz3"
       >
-        Post
-      </button>
+        <div
+          class="mantine-RichTextEditor-toolbar mantine-bdajhj ql-toolbar ql-snow"
+          id="rte"
+        >
+          <div
+            class="mantine-1hfeyh7 mantine-RichTextEditor-toolbarInner"
+          >
+            <div
+              class="mantine-14p8p9h mantine-RichTextEditor-toolbarGroup"
+            >
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-bold mantine-RichTextEditor-toolbarControl mantine-h9r4bm"
+                title="Bold"
+                type="button"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-bold"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <path
+                    d="M7 5h6a3.5 3.5 0 0 1 0 7h-6z"
+                  />
+                  <path
+                    d="M13 12h1a3.5 3.5 0 0 1 0 7h-7v-7"
+                  />
+                </svg>
+              </button>
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-italic mantine-RichTextEditor-toolbarControl mantine-h9r4bm"
+                title="Italic"
+                type="button"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-italic"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <line
+                    x1="11"
+                    x2="17"
+                    y1="5"
+                    y2="5"
+                  />
+                  <line
+                    x1="7"
+                    x2="13"
+                    y1="19"
+                    y2="19"
+                  />
+                  <line
+                    x1="14"
+                    x2="10"
+                    y1="5"
+                    y2="19"
+                  />
+                </svg>
+              </button>
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-underline mantine-RichTextEditor-toolbarControl mantine-h9r4bm"
+                title="Underline"
+                type="button"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-underline"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <path
+                    d="M7 5v5a5 5 0 0 0 10 0v-5"
+                  />
+                  <path
+                    d="M5 19h14"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="mantine-14p8p9h mantine-RichTextEditor-toolbarGroup"
+            >
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-list mantine-RichTextEditor-toolbarControl mantine-h9r4bm"
+                title="Bullet list"
+                type="button"
+                value="bullet"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-list"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <line
+                    x1="9"
+                    x2="20"
+                    y1="6"
+                    y2="6"
+                  />
+                  <line
+                    x1="9"
+                    x2="20"
+                    y1="12"
+                    y2="12"
+                  />
+                  <line
+                    x1="9"
+                    x2="20"
+                    y1="18"
+                    y2="18"
+                  />
+                  <line
+                    x1="5"
+                    x2="5"
+                    y1="6"
+                    y2="6.01"
+                  />
+                  <line
+                    x1="5"
+                    x2="5"
+                    y1="12"
+                    y2="12.01"
+                  />
+                  <line
+                    x1="5"
+                    x2="5"
+                    y1="18"
+                    y2="18.01"
+                  />
+                </svg>
+              </button>
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-header mantine-RichTextEditor-toolbarControl mantine-h9r4bm"
+                title="Heading 1"
+                type="button"
+                value="1"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-h-1"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <path
+                    d="M19 18v-8l-2 2"
+                  />
+                  <path
+                    d="M4 6v12"
+                  />
+                  <path
+                    d="M12 6v12"
+                  />
+                  <path
+                    d="M11 18h2"
+                  />
+                  <path
+                    d="M3 18h2"
+                  />
+                  <path
+                    d="M4 12h8"
+                  />
+                  <path
+                    d="M3 6h2"
+                  />
+                  <path
+                    d="M11 6h2"
+                  />
+                </svg>
+              </button>
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-header mantine-RichTextEditor-toolbarControl mantine-h9r4bm"
+                title="Heading 2"
+                type="button"
+                value="2"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-h-2"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <path
+                    d="M17 12a2 2 0 1 1 4 0c0 .591 -.417 1.318 -.816 1.858l-3.184 4.143l4 0"
+                  />
+                  <path
+                    d="M4 6v12"
+                  />
+                  <path
+                    d="M12 6v12"
+                  />
+                  <path
+                    d="M11 18h2"
+                  />
+                  <path
+                    d="M3 18h2"
+                  />
+                  <path
+                    d="M4 12h8"
+                  />
+                  <path
+                    d="M3 6h2"
+                  />
+                  <path
+                    d="M11 6h2"
+                  />
+                </svg>
+              </button>
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-header mantine-RichTextEditor-toolbarControl mantine-h9r4bm"
+                title="Heading 3"
+                type="button"
+                value="3"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-h-3"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <path
+                    d="M19 14a2 2 0 1 0 -2 -2"
+                  />
+                  <path
+                    d="M17 16a2 2 0 1 0 2 -2"
+                  />
+                  <path
+                    d="M4 6v12"
+                  />
+                  <path
+                    d="M12 6v12"
+                  />
+                  <path
+                    d="M11 18h2"
+                  />
+                  <path
+                    d="M3 18h2"
+                  />
+                  <path
+                    d="M4 12h8"
+                  />
+                  <path
+                    d="M3 6h2"
+                  />
+                  <path
+                    d="M11 6h2"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="mantine-14p8p9h mantine-RichTextEditor-toolbarGroup"
+            >
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-script mantine-RichTextEditor-toolbarControl mantine-h9r4bm"
+                title="Super script"
+                type="button"
+                value="super"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-superscript"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <path
+                    d="M5 7l8 10m-8 0l8 -10"
+                  />
+                  <path
+                    d="M21 11h-4l3.5 -4a1.73 1.73 0 0 0 -3.5 -2"
+                  />
+                </svg>
+              </button>
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-script mantine-RichTextEditor-toolbarControl mantine-h9r4bm"
+                title="Sub script"
+                type="button"
+                value="sub"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-subscript"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <path
+                    d="M5 7l8 10m-8 0l8 -10"
+                  />
+                  <path
+                    d="M21 20h-4l3.5 -4a1.73 1.73 0 0 0 -3.5 -2"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="mantine-14p8p9h mantine-RichTextEditor-toolbarGroup"
+            >
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-align mantine-RichTextEditor-toolbarControl mantine-1uiuxz1"
+                title="Align text to left"
+                type="button"
+                value=""
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-align-left"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <line
+                    x1="4"
+                    x2="20"
+                    y1="6"
+                    y2="6"
+                  />
+                  <line
+                    x1="4"
+                    x2="14"
+                    y1="12"
+                    y2="12"
+                  />
+                  <line
+                    x1="4"
+                    x2="18"
+                    y1="18"
+                    y2="18"
+                  />
+                </svg>
+              </button>
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-align mantine-RichTextEditor-toolbarControl mantine-1uiuxz1"
+                title="Align text to center"
+                type="button"
+                value="center"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-align-center"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <line
+                    x1="4"
+                    x2="20"
+                    y1="6"
+                    y2="6"
+                  />
+                  <line
+                    x1="8"
+                    x2="16"
+                    y1="12"
+                    y2="12"
+                  />
+                  <line
+                    x1="6"
+                    x2="18"
+                    y1="18"
+                    y2="18"
+                  />
+                </svg>
+              </button>
+              <button
+                class="mantine-UnstyledButton-root mantine-ActionIcon-root mantine-RichTextEditor-control ql-align mantine-RichTextEditor-toolbarControl mantine-1uiuxz1"
+                title="Align text to right"
+                type="button"
+                value="right"
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-align-right"
+                  fill="none"
+                  height="18"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    stroke="none"
+                  />
+                  <line
+                    x1="4"
+                    x2="20"
+                    y1="6"
+                    y2="6"
+                  />
+                  <line
+                    x1="10"
+                    x2="20"
+                    y1="12"
+                    y2="12"
+                  />
+                  <line
+                    x1="6"
+                    x2="20"
+                    y1="18"
+                    y2="18"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="quill "
+        >
+          <div
+            class="ql-container ql-snow"
+          >
+            <div
+              class="ql-editor ql-blank"
+              contenteditable="true"
+              data-gramm="false"
+              data-placeholder="Write a note that will appear on the map!"
+            >
+              <p>
+                <br />
+              </p>
+            </div>
+            <div
+              class="ql-clipboard"
+              contenteditable="true"
+              tabindex="-1"
+            />
+            <div
+              class="ql-tooltip ql-hidden"
+            >
+              <a
+                class="ql-preview"
+                href="about:blank"
+                rel="noopener noreferrer"
+                target="_blank"
+              />
+              <input
+                data-formula="e=mc^2"
+                data-link="https://quilljs.com"
+                data-video="Embed URL"
+                type="text"
+              />
+              <a
+                class="ql-action"
+              />
+              <a
+                class="ql-remove"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="center"
+      >
+        <button
+          type="submit"
+        >
+          Post
+        </button>
+      </div>
     </form>
   </div>
 </DocumentFragment>

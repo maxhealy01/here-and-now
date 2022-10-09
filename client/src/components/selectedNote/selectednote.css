@@ -32,15 +32,15 @@
 	width: 0.5rem;
 }
 
-.quill {
-	border: none;
-}
-
 .noteBottom {
 	position: relative;
 	margin: auto;
 	text-align: center;
 	padding: 3px 0 3px 0;
+}
+
+.no-border {
+	border: none !important;
 }
 
 @media screen and (max-width: 768px) {

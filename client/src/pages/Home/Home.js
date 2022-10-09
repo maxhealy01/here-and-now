@@ -1,31 +1,19 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_NOTES } from "../../utils/queries";
+
+import SplashPage from "../SplashPage/SplashPage";
 import WrappedMap from "../../components/Map/Map";
 import NoteForm from "../../components/NoteForm/NoteForm";
 import SelectedNote from "../../components/SelectedNote/SelectedNote";
 import { ObjectId } from "mongodb";
+import Auth from "../../utils/auth";
 
 import "./Home.css";
 
 const Home = () => {
 	const [latitude, setLatitude] = useState("");
 	const [longitude, setLongitude] = useState("");
-	const { loading, data } = useQuery(QUERY_NOTES);
-	const [selectedNote, setSelectedNote] = useState("");
-
-	// Create logic for the button that asks for a user's location
-	const [locationKnown, setLocationKnown] = useState(false);
-
-	const handleLocation = (e) => {
-		navigator.geolocation.getCurrentPosition(function (position) {
-			setLatitude(position.coords.latitude);
-			setLongitude(position.coords.longitude);
-			setLocationKnown(true);
-		});
-	};
-
-	// Get the user's location
 
 	// Create a list of dummy notes to populate the map for demo purposes
 	let exampleNotes = [
@@ -40,18 +28,45 @@ const Home = () => {
 		},
 	];
 
+	const [notes, setNotes] = useState([]);
+	const { error, data } = useQuery(QUERY_NOTES, {
+		onCompleted: () => {
+			setNotes(data.notes.concat(exampleNotes));
+		},
+	});
+
+	const [selectedNote, setSelectedNote] = useState("");
+
+	// Create logic for the button that asks for a user's location
+	const [locationKnown, setLocationKnown] = useState(false);
+
+	const handleLocation = (e) => {
+		navigator.geolocation.getCurrentPosition(function (position) {
+			setLatitude(position.coords.latitude);
+			setLongitude(position.coords.longitude);
+			setLocationKnown(true);
+		});
+	};
+
+	// If user is logged in, get coordinates automatically
+	if (Auth.loggedIn()) {
+		navigator.geolocation.getCurrentPosition(function (position) {
+			setLatitude(position.coords.latitude);
+			setLongitude(position.coords.longitude);
+			setLocationKnown(true);
+		});
+	}
+
 	return (
 		<div>
-			{!locationKnown && (
-				<button onClick={handleLocation}>
-					May we ascertain your location?
-				</button>
+			{!Auth.loggedIn() && !locationKnown && (
+				<SplashPage handleLocation={handleLocation} />
 			)}
 			{latitude && data && (
 				<div className="map">
 					<WrappedMap
 						setSelectedNote={setSelectedNote}
-						notes={data.notes.concat(exampleNotes)}
+						notes={notes}
 						lat={latitude}
 						long={longitude}
 						isMarkerShown
@@ -63,8 +78,13 @@ const Home = () => {
 				</div>
 			)}
 			<div className="notesOrComments">
-				{latitude && data && !selectedNote && (
-					<NoteForm lat={latitude} long={longitude} />
+				{latitude && notes && !selectedNote && (
+					<NoteForm
+						lat={latitude}
+						long={longitude}
+						setNotes={setNotes}
+						notes={notes}
+					/>
 				)}
 				{selectedNote && (
 					<SelectedNote
@@ -73,6 +93,10 @@ const Home = () => {
 					/>
 				)}
 			</div>
+			<script
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAE5FDeD7mf02RHDXEu2SzZWlrWJCbwSw&callback=initMap&v=weekly"
+				defer
+			></script>
 		</div>
 	);
 };

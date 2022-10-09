@@ -53,7 +53,7 @@ describe("SelectedNote", () => {
 		);
 
 		expect(
-			screen.queryByText(`Show Comments ${note.comments.length}`)
+			screen.queryByText(`Show ${note.comments.length} Comments`)
 		).not.toBeNull();
 
 		// Make sure comment text is absent from page
@@ -63,7 +63,7 @@ describe("SelectedNote", () => {
 
 		// Simulate 'Show Comments' click
 		fireEvent.click(
-			screen.queryByText(`Show Comments ${note.comments.length}`)
+			screen.queryByText(`Show ${note.comments.length} Comments`)
 		);
 
 		// Make sure comment text is present on page
@@ -85,7 +85,7 @@ describe("SelectedNote", () => {
 		);
 
 		fireEvent.click(
-			screen.queryByText(`Show Comments ${note.comments.length}`)
+			screen.queryByText(`Show ${note.comments.length} Comments`)
 		);
 
 		fireEvent.change(screen.getByPlaceholderText("Leave a comment!"), {
@@ -109,7 +109,7 @@ describe("SelectedNote", () => {
 		);
 
 		fireEvent.click(
-			screen.queryByText(`Show Comments ${note.comments.length}`)
+			screen.queryByText(`Show  ${note.comments.length} Comments`)
 		);
 
 		fireEvent.click(screen.queryByText("Hide Comments"));

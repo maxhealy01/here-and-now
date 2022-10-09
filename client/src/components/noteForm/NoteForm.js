@@ -4,7 +4,7 @@ import { ADD_NOTE } from "../../utils/mutations";
 import "./NoteForm.css";
 import { RichTextEditor } from "@mantine/rte";
 
-const NoteForm = ({ lat, long }) => {
+const NoteForm = ({ lat, long, setNotes, notes }) => {
 	const [noteText, onChange] = useState("");
 	const [addNote] = useMutation(ADD_NOTE);
 
@@ -14,11 +14,22 @@ const NoteForm = ({ lat, long }) => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-		console.log(noteText);
+		console.log(notes);
 		try {
 			await addNote({
 				variables: { text: noteText, latitude: lat, longitude: long },
 			});
+			setNotes([
+				...notes,
+				{
+					text: noteText,
+					latitude: lat,
+					longitude: long,
+					comments: [],
+					username: "anonymous",
+					createdAt: "just now",
+				},
+			]);
 			// window.location.reload(false);
 		} catch (e) {
 			console.error(e);
