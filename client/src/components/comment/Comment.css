@@ -5,4 +5,17 @@
 .commentBody {
 	padding-left: 0.5rem;
 	border-top: 1px solid var(--dark);
+	display: flex;
+	flex-direction: column;
+}
+
+.commentTop {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	border-bottom: 1px dotted var(--dark);
+}
+
+.commentUsername {
+	font-weight: bold;
 }
