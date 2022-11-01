@@ -1,0 +1,19 @@
+.splashPage {
+	width: 75vw;
+	margin: auto;
+	margin-top: 3rem;
+	display: flex;
+	flex-direction: column;
+}
+
+p {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	font-size: 1.5rem;
+}
+
+button {
+	padding: 1rem;
+	width: 16rem;
+	margin: auto;
+	margin-top: 1rem;
+}

@@ -15,11 +15,12 @@ const WrappedMap = withScriptjs(
 			defaultCenter={{ lat: props.lat, lng: props.long }}
 		>
 			{props.notes.map((note) => {
+				console.log(props);
 				// Use the time ago to determine which icon color the marker will be
 				// They are determined by being within 24 hours, 1 month, 1 year
 				// Therefore, we can determine this by reading the TimeAgo string
-				const time = ObjectId(note._id).getTimestamp();
-				const timeAgo = format(time);
+				// const time = ObjectId(note._id).getTimestamp();
+				const timeAgo = format(note.createdAt);
 				let iconUrl;
 
 				if (timeAgo.includes("month")) {
@@ -31,6 +32,7 @@ const WrappedMap = withScriptjs(
 				} else {
 					iconUrl = "https://maps.google.com/mapfiles/ms/icons/green.png";
 				}
+
 				return (
 					<Marker
 						key={note._id}

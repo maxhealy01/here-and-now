@@ -1,5 +1,5 @@
 import React from "react";
-import { render, cleanup, fireEvent } from "@testing-library/react";
+import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import NoteForm from "../NoteForm";
 import { ApolloProvider } from "@apollo/react-hooks";
@@ -24,21 +24,26 @@ const lat = 30.267153;
 const long = -97.743057;
 
 describe("NoteForm component", () => {
-	it("renders", () => {
+	it("renders NoteForm, shows input", () => {
+		const notes = [];
 		render(
 			<ApolloProvider client={client}>
-				<NoteForm lat={lat} long={long} />
+				<NoteForm lat={lat} long={long} setNotes={() => {}} notes={notes} />
 			</ApolloProvider>
 		);
-	});
+		const field = screen.queryByTestId("text-editor").querySelector("input");
+		// 1. User sees the note form.
+		expect(screen.queryByTestId("text-editor")).not.toBeNull();
 
-	it("matches snapshot DOM node structure", () => {
-		const { asFragment } = render(
-			<ApolloProvider client={client}>
-				<NoteForm lat={lat} long={long} />
-			</ApolloProvider>
-		);
+		// 2. User can type into the note form and post a note.
+		fireEvent.change(field, {
+			target: { value: "Here is a new note!" },
+		});
 
-		expect(asFragment()).toMatchSnapshot();
+		// Post the note
+		fireEvent.click(screen.getByText("Post"));
+
+		// 3. The input form will be empty.
+		expect(field).toHaveValue("");
 	});
 });

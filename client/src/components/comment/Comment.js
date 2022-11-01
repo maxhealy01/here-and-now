@@ -22,5 +22,3 @@ const Comment = ({ c, index }) => {
 };
 
 export default Comment;
-
-// ))}

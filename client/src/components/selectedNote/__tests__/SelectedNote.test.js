@@ -109,7 +109,7 @@ describe("SelectedNote", () => {
 		);
 
 		fireEvent.click(
-			screen.queryByText(`Show  ${note.comments.length} Comments`)
+			screen.queryByText(`Show ${note.comments.length} Comments`)
 		);
 
 		fireEvent.click(screen.queryByText("Hide Comments"));
@@ -121,18 +121,5 @@ describe("SelectedNote", () => {
 
 		//
 		expect(screen.queryByPlaceholderText("Leave a comment!")).toBeNull();
-	});
-	//5 User clicks on "x" and Selected Note goes away
-	// MOVE THIS TEST TO 'HOME'
-	it("X's off the note", () => {
-		render(
-			<ApolloProvider client={client}>
-				<SelectedNote selectedNote={note} setSelectedNote={() => {}} />
-			</ApolloProvider>
-		);
-
-		fireEvent.click(screen.queryByText(/x/i));
-
-		expect(screen.queryByText(note.text)).toBeNull();
 	});
 });

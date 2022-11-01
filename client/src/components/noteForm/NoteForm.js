@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation, useQuery } from "@apollo/react-hooks";
+import { QUERY_ME } from "../../utils/queries";
 import { ADD_NOTE } from "../../utils/mutations";
 import "./NoteForm.css";
 import { RichTextEditor } from "@mantine/rte";
@@ -9,9 +10,11 @@ const NoteForm = ({ lat, long, setNotes, notes }) => {
 	const [noteText, onChange] = useState("");
 	const [addNote] = useMutation(ADD_NOTE);
 
-	// const handleChange = (event) => {
-	// 	setText(event.target.value);
-	// };
+	// Set the username, so that when the notes are refreshed they will show the proper username.
+	const [userId, setId] = useState("anonymous");
+	const { data } = useQuery(QUERY_ME, {
+		onCompleted: () => setId(data.me.username),
+	});
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
@@ -29,11 +32,11 @@ const NoteForm = ({ lat, long, setNotes, notes }) => {
 					latitude: lat,
 					longitude: long,
 					comments: [],
-					username: "anonymous",
+					username: userId,
 					createdAt: "just now",
 				},
 			]);
-			// window.location.reload(false);
+			onChange("");
 		} catch (e) {
 			console.error(e);
 		}
@@ -44,6 +47,7 @@ const NoteForm = ({ lat, long, setNotes, notes }) => {
 			<form onSubmit={handleFormSubmit}>
 				<div className="noteTextarea"></div>
 				<RichTextEditor
+					data-testid="text-editor"
 					id="rte"
 					controls={[
 						["bold", "italic", "underline"],

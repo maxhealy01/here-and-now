@@ -1,19 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./SplashPage.css";
 
-const SplashPage = ({ handleLocation }) => {
+const SplashPage = ({
+	handleLocation,
+	setLatitude,
+	setLongitude,
+	setLocationKnown,
+}) => {
 	return (
-		<div>
+		<div className="splashPage">
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti
-				aperiam ab tempora sit minus iste dolores eligendi unde molestiae
-				voluptate, dolorem neque, id a explicabo rerum error exercitationem,
-				tenetur molestias?
+				Here and Now uses Google Maps to connect its users in time and space.
 			</p>
-			<Link to="/signup">Signup</Link>
-			<Link to="/login">Login</Link>
+			<p>
+				Go to the map page to see what people around you have been saying,
+				thinking, and feeling!
+			</p>
+			<button>
+				<Link to="/signup">Signup</Link>
+			</button>
+			<button>
+				<Link to="/login">Login</Link>
+			</button>
 			<button onClick={handleLocation}>
 				Check out the map without signing up
+			</button>
+			<button
+				onClick={() => {
+					setLatitude(30.3131266);
+					setLongitude(-97.6709167);
+					setLocationKnown(true);
+				}}
+			>
+				Check out the map without providing location
 			</button>
 		</div>
 	);
