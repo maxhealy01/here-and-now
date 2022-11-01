@@ -143,7 +143,7 @@ const Home = () => {
 	const [notes, setNotes] = useState([]);
 	const { error, data } = useQuery(QUERY_NOTES, {
 		onCompleted: () => {
-			setNotes(data.notes.concat(exampleNotes));
+			setNotes(data.notes);
 		},
 	});
 
