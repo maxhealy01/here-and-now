@@ -34,5 +34,8 @@
 		"heroku-postbuild": "cd client && npm run build"
 	},
 	"author": "",
-	"license": "ISC"
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/helper-compilation-targets": "^7.20.0"
+	}
 }
