@@ -14,7 +14,6 @@ const Home = () => {
 	const [longitude, setLongitude] = useState("");
 
 	const [selectedNote, setSelectedNote] = useState("");
-	const [username, setUsername] = useState("anonymous");
 
 	// Create logic for the button that asks for a user's location
 	const [locationKnown, setLocationKnown] = useState(false);

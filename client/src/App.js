@@ -21,7 +21,7 @@ const client = new ApolloClient({
 			},
 		});
 	},
-	uri: "http://localhost:3001/graphql",
+	uri: "https://app-hereandnow.herokuapp.com/",
 });
 
 function App() {
