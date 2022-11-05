@@ -1,13 +1,17 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/hereandnowww",
-	{
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-		useCreateIndex: true,
-		useFindAndModify: false,
-	}
-);
+try {
+	mongoose.connect(
+		process.env.MONGODB_URI || "mongodb://localhost/hereandnowww",
+		{
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			useCreateIndex: true,
+			useFindAndModify: false,
+		}
+	);
+} catch (error) {
+	console.log(error);
+}
 
 module.exports = mongoose.connection;
