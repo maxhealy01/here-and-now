@@ -140,11 +140,11 @@ const Home = () => {
 	// This occurs after Lat + Long are set so that the exampleNotes can be placed
 	// in visible locations
 	const [notes, setNotes] = useState([]);
-	// const { error, data } = useQuery(QUERY_NOTES, {
-	// 	onCompleted: () => {
-	// 		setNotes(data.notes);
-	// 	},
-	// });
+	const { error, data } = useQuery(QUERY_NOTES, {
+		onCompleted: () => {
+			setNotes(data.notes);
+		},
+	});
 
 	return (
 		<div>
