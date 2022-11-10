@@ -8,6 +8,7 @@ try {
 			useUnifiedTopology: true,
 			useCreateIndex: true,
 			useFindAndModify: false,
+			tls: false,
 		}
 	);
 } catch (error) {
