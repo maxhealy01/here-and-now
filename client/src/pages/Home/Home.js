@@ -148,14 +148,7 @@ const Home = () => {
 
 	return (
 		<div>
-			{!Auth.loggedIn() && !locationKnown ? (
-				<SplashPage
-					handleLocation={handleLocation}
-					setLatitude={setLatitude}
-					setLongitude={setLongitude}
-					setLocationKnown={setLocationKnown}
-				/>
-			) : (
+			{Auth.loggedIn() && locationKnown && notes ? (
 				<MapPage
 					setSelectedNote={setSelectedNote}
 					selectedNote={selectedNote}
@@ -163,6 +156,13 @@ const Home = () => {
 					notes={notes}
 					latitude={latitude}
 					longitude={longitude}
+				/>
+			) : (
+				<SplashPage
+					handleLocation={handleLocation}
+					setLatitude={setLatitude}
+					setLongitude={setLongitude}
+					setLocationKnown={setLocationKnown}
 				/>
 			)}
 			<script
