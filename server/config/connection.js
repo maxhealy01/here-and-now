@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 try {
 	mongoose.connect(
-		process.env.MONGODB_URI || "mongodb://localhost/hereandnowww",
+		"mongodb+srv://maxwellhealy:eFa4qOMoXYVCUMTE@cluster0.cyk9y.mongodb.net/?retryWrites=true&w=majority" ||
+			"mongodb://localhost/hereandnowww",
 		{
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
