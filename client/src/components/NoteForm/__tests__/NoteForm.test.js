@@ -2,8 +2,7 @@ import React from "react";
 import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import NoteForm from "../NoteForm";
-import { ApolloProvider } from "@apollo/react-hooks";
-import ApolloClient from "apollo-boost";
+import { ApolloProvider, ApolloClient } from "@apollo/client";
 
 afterEach(cleanup);
 
