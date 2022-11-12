@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ApolloProvider } from "@apollo/react-hooks";
-import ApolloClient from "apollo-boost";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { ApolloProvider } from "@apollo/react-hooks";
+// import ApolloClient from "apollo-boost";
 
-import Home from "./pages/Home/Home";
-import Signup from "./pages/Signup/Signup";
-import Login from "./pages/Login/Login";
-import Nav from "./components/Nav/Nav";
+// import Home from "./pages/Home/Home";
+// import Signup from "./pages/Signup/Signup";
+// import Login from "./pages/Login/Login";
+// import Nav from "./components/Nav/Nav";
 
 // const client = new ApolloClient({
 // 	request: (operation) => {
