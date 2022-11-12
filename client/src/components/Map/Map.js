@@ -6,7 +6,6 @@ import {
 	Marker,
 } from "react-google-maps";
 import { format } from "timeago.js";
-import { ObjectId } from "mongodb";
 
 const WrappedMap = withScriptjs(
 	withGoogleMap((props) => (
@@ -19,7 +18,6 @@ const WrappedMap = withScriptjs(
 				// Use the time ago to determine which icon color the marker will be
 				// They are determined by being within 24 hours, 1 month, 1 year
 				// Therefore, we can determine this by reading the TimeAgo string
-				// const time = ObjectId(note._id).getTimestamp();
 				const timeAgo = format(note.createdAt);
 				let iconUrl;
 

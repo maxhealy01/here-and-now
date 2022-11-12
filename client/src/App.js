@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider, InMemoryCache, ApolloClient } from "@apollo/client";
-// import ApolloClient from "apollo-boost";
 
 import Home from "./pages/Home/Home";
 import Signup from "./pages/Signup/Signup";
@@ -19,7 +18,7 @@ const client = new ApolloClient({
 			},
 		});
 	},
-	uri: "https://app-hereandnow.herokuapp.com/graphql",
+	uri: "http://localhost:3001/graphql",
 	cache: cache,
 });
 
