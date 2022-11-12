@@ -2,14 +2,12 @@ const mongoose = require("mongoose");
 
 try {
 	mongoose.connect(
-		"mongodb+srv://maxwellhealy:eFa4qOMoXYVCUMTE@cluster0.cyk9y.mongodb.net/?retryWrites=true&w=majority" ||
-			"mongodb://localhost/hereandnowww",
+		process.env.MONGODB_URI || "mongodb://localhost/hereandnowww",
 		{
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 			useCreateIndex: true,
 			useFindAndModify: false,
-			tls: false,
 		}
 	);
 } catch (error) {

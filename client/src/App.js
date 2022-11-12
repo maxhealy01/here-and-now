@@ -24,17 +24,18 @@ import Nav from "./components/Nav/Nav";
 function App() {
 	return (
 		// <ApolloProvider client={client}>
-		<Router>
-			<div>
-				<Route exact path="/" component={() => <p>"Hello world"</p>} />
-				{/* <Nav />
-				<Switch>
-					<Route exact path="/" component={Home} />
-					<Route exact path="/signup" component={Signup} />
-					<Route exact path="/login" component={Login} />
-				</Switch> */}
-			</div>
-		</Router>
+		<p>"Hello world"</p>
+		// <Router>
+		// 	<div>
+		// 		<Route exact path="/" component={() => <p>"Hello world"</p>} />
+		// 		{/* <Nav />
+		// 		<Switch>
+		// 			<Route exact path="/" component={Home} />
+		// 			<Route exact path="/signup" component={Signup} />
+		// 			<Route exact path="/login" component={Login} />
+		// 		</Switch> */}
+		// 	</div>
+		// </Router>
 		// </ApolloProvider>
 	);
 }
