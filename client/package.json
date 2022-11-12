@@ -4,7 +4,6 @@
 	"private": true,
 	"dependencies": {
 		"@apollo/client": "^3.7.1",
-		"@apollo/react-hooks": "^4.0.0",
 		"@mantine/core": "^5.5.2",
 		"@mantine/hooks": "^5.5.2",
 		"@mantine/rte": "^5.5.2",
