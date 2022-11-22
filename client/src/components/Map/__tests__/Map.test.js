@@ -1,8 +1,9 @@
 import React from "react";
 import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import WrappedMap from "../Map";
+import WrappedMap, { getIconUrl } from "../Map";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { format } from "timeago.js";
 
 // client for Apollo
 const cache = new InMemoryCache();
@@ -67,5 +68,19 @@ describe("Map", () => {
 				mapElement={<div style={{ height: `100%` }} />}
 			/>
 		);
+	});
+
+	it("returns proper icon URLs", () => {
+		let icons = notes.map((note) => {
+			const timeAgo = format(note.createdAt);
+
+			return getIconUrl(timeAgo);
+		});
+
+		expect(icons).toStrictEqual([
+			"https://maps.google.com/mapfiles/ms/icons/green.png",
+			"https://maps.google.com/mapfiles/ms/icons/orange.png",
+			"https://maps.google.com/mapfiles/ms/icons/yellow.png",
+		]);
 	});
 });

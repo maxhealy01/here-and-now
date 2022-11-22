@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_ME } from "../../utils/queries";
+import { useMutation } from "@apollo/client";
 import { ADD_NOTE } from "../../utils/mutations";
 import "./NoteForm.css";
 import { RichTextEditor } from "@mantine/rte";

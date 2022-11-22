@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_NOTES, QUERY_ME } from "../../utils/queries";
+import { QUERY_NOTES } from "../../utils/queries";
 
 import SplashPage from "../SplashPage/SplashPage";
 import MapPage from "../MapPage/MapPage";

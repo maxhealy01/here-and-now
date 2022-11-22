@@ -41,12 +41,11 @@ describe("NoteForm component", () => {
 			target: { value: "Here is a new note!" },
 		});
 
+		expect(field).toHaveValue("Here is a new note!");
 		// Post the note
-		fireEvent.click(screen.getByText("Post"));
+		fireEvent.click(screen.queryByText(`Post`));
 
 		// 3. The input form will be empty.
-		expect(
-			screen.queryByTestId("text-editor").querySelector("input")
-		).toHaveValue("");
+		expect(field).toHaveValue("");
 	});
 });

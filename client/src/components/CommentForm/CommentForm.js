@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import React from "react";
+import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
 
 import "./CommentForm.css";
 

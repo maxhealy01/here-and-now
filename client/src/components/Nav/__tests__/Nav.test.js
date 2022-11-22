@@ -1,13 +1,13 @@
 import React from "react";
-import { render, cleanup, fireEvent } from "@testing-library/react";
+import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Nav from "../Nav";
 import { BrowserRouter as Router } from "react-router-dom";
-
-afterEach(cleanup);
+import Auth from "../../../utils/auth";
+jest.mock("../../../utils/auth");
 
 describe("Nav component", () => {
-	it("renders", () => {
+	it("correctly displays logout button", () => {
 		render(
 			<Router>
 				<Nav />
@@ -15,13 +15,7 @@ describe("Nav component", () => {
 		);
 	});
 
-	it("matches snapshot DOM node structure", () => {
-		const { asFragment } = render(
-			<Router>
-				<Nav />
-			</Router>
-		);
-
-		expect(asFragment()).toMatchSnapshot();
+	it("mocks return value", () => {
+		const login = new expect(Auth.loggedIn()).toBe(true);
 	});
 });
