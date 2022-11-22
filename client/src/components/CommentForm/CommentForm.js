@@ -5,37 +5,21 @@ import { QUERY_ME } from "../../utils/queries";
 
 import "./CommentForm.css";
 
-const CommentForm = ({
-	comment,
-	comments,
-	setComment,
-	setComments,
-	noteId,
-}) => {
-	// Set the username, so that when the comments are refreshed they will show the proper username.
-	const [userId, setId] = useState("anonymous");
-	const { data } = useQuery(QUERY_ME, {
-		onCompleted: () => setId(data.me.username),
-	});
-
+const CommentForm = ({ setComments, selectedNote, comment, setComment }) => {
 	// Create logic for adding a comment to the note
 	const [newComment] = useMutation(ADD_COMMENT);
 
-	const handleCommentSubmit = (e) => {
+	const handleCommentSubmit = async (e) => {
 		e.preventDefault();
-		const c = {
-			username: userId,
-			text: comment,
-			noteId: noteId,
-		};
-		newComment({
+
+		let updatedNote = await newComment({
 			variables: {
 				text: comment,
-				noteId: noteId,
+				noteId: selectedNote._id,
 			},
 		});
-		setComments([...comments, c]);
 		setComment("");
+		setComments(updatedNote.data.addComment.comments);
 	};
 
 	return (

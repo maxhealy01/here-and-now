@@ -2,9 +2,10 @@ import React from "react";
 import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import NoteForm from "../NoteForm";
-import { ApolloProvider, ApolloClient } from "@apollo/client";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
-afterEach(cleanup);
+// client for Apollo
+const cache = new InMemoryCache();
 
 const client = new ApolloClient({
 	request: (operation) => {
@@ -17,6 +18,7 @@ const client = new ApolloClient({
 		});
 	},
 	uri: "http://localhost:3001/graphql",
+	cache: cache,
 });
 
 const lat = 30.267153;
@@ -43,6 +45,8 @@ describe("NoteForm component", () => {
 		fireEvent.click(screen.getByText("Post"));
 
 		// 3. The input form will be empty.
-		expect(field).toHaveValue("");
+		expect(
+			screen.queryByTestId("text-editor").querySelector("input")
+		).toHaveValue("");
 	});
 });

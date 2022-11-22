@@ -16,8 +16,8 @@ const MapPage = ({
 			<WrappedMap
 				setSelectedNote={setSelectedNote}
 				notes={notes}
-				lat={latitude}
-				long={longitude}
+				latitude={latitude}
+				longitude={longitude}
 				isMarkerShown
 				googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAE5FDeD7mf02RHDXEu2SzZWlrWJCbwSw"
 				loadingElement={<div style={{ height: `100%` }} />}

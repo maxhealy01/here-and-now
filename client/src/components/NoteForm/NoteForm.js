@@ -4,35 +4,23 @@ import { QUERY_ME } from "../../utils/queries";
 import { ADD_NOTE } from "../../utils/mutations";
 import "./NoteForm.css";
 import { RichTextEditor } from "@mantine/rte";
-import { ObjectId } from "bson";
 
 const NoteForm = ({ lat, long, setNotes, notes }) => {
 	const [noteText, onChange] = useState("");
 	const [addNote] = useMutation(ADD_NOTE);
-	// Set the username, so that when the notes are refreshed they will show the proper username.
-	const [userId, setId] = useState("anonymous");
-	const { data } = useQuery(QUERY_ME, {
-		onCompleted: () => setId(data.me.username),
-	});
+
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-		console.log(notes);
 		try {
-			await addNote({
-				variables: { text: noteText, latitude: lat, longitude: long },
-			});
-			setNotes([
-				...notes,
-				{
-					_id: ObjectId().toString(),
+			const note = await addNote({
+				variables: {
 					text: noteText,
 					latitude: lat,
 					longitude: long,
-					comments: [],
-					username: userId,
-					createdAt: "just now",
 				},
-			]);
+			});
+			console.log(note.data.addNote);
+			setNotes([...notes, note.data.addNote]);
 			onChange("");
 		} catch (e) {
 			console.error(e);

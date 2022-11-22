@@ -2,9 +2,11 @@ import React from "react";
 import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import WrappedMap from "../Map";
-import { ApolloProvider, ApolloClient } from "@apollo/client";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 // client for Apollo
+const cache = new InMemoryCache();
+
 const client = new ApolloClient({
 	request: (operation) => {
 		// we'll need the logic for setting id_token -- related to auth, both in client and server
@@ -16,6 +18,7 @@ const client = new ApolloClient({
 		});
 	},
 	uri: "http://localhost:3001/graphql",
+	cache: cache,
 });
 
 describe("Map", () => {

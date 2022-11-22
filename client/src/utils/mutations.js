@@ -31,6 +31,10 @@ export const ADD_NOTE = gql`
 			longitude
 			username
 			createdAt
+			commentCount
+			comments {
+				_id
+			}
 		}
 	}
 `;
@@ -39,6 +43,9 @@ export const ADD_COMMENT = gql`
 	mutation addComment($noteId: ID!, $text: String!) {
 		addComment(noteId: $noteId, text: $text) {
 			_id
+			text
+			createdAt
+			username
 			comments {
 				_id
 				text

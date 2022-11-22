@@ -18,6 +18,7 @@ export const QUERY_ME = gql`
 				text
 				latitude
 				longitude
+				commentCount
 				comments {
 					_id
 					text
@@ -37,6 +38,7 @@ export const QUERY_NOTES = gql`
 			longitude
 			username
 			createdAt
+			commentCount
 			comments {
 				text
 				createdAt

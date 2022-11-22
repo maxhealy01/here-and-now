@@ -3,7 +3,6 @@ import TimeAgo from "timeago-react";
 import "./Comment.css";
 
 const Comment = ({ c, index }) => {
-	console.log(c);
 	const { text, username, createdAt } = c;
 	const time = createdAt;
 

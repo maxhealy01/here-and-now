@@ -9,6 +9,7 @@ const typeDefs = gql`
 		longitude: Float
 		createdAt: String
 		date: String
+		commentCount: Int
 		comments: [Comment]
 	}
 

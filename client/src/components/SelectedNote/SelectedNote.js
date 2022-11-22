@@ -59,11 +59,10 @@ const SelectedNote = ({ selectedNote, setSelectedNote }) => {
 						return <Comment key={c._id} c={c} index={index} />;
 					})}
 					<CommentForm
-						comments={comments}
 						setComments={setComments}
+						selectedNote={selectedNote}
 						comment={comment}
 						setComment={setComment}
-						noteId={note._id}
 					/>
 				</div>
 			)}
