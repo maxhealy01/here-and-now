@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
+import { LOGIN } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import { ADD_USER } from "../../utils/mutations";
 
-function Signup(props) {
+function Login() {
 	const [formState, setFormState] = useState({ email: "", password: "" });
-	const [addUser] = useMutation(ADD_USER);
+	const [login, { error }] = useMutation(LOGIN);
 
-	const handleFormSubmit = async (event) => {
+	const handleFormSubmit: React.FormEventHandler<HTMLFormElement> = async (
+		event
+	) => {
 		event.preventDefault();
-		const mutationResponse = await addUser({
-			variables: {
-				email: formState.email,
-				password: formState.password,
-				username: formState.username,
-			},
-		});
-		const token = mutationResponse.data.addUser.token;
-		Auth.login(token);
+		try {
+			const mutationResponse = await login({
+				variables: { email: formState.email, password: formState.password },
+			});
+			const token = mutationResponse.data.login.token;
+			Auth.login(token);
+		} catch (e) {
+			console.log(e);
+		}
 	};
 
-	const handleChange = (event) => {
+	const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
 		const { name, value } = event.target;
 		setFormState({
 			...formState,
@@ -31,19 +33,10 @@ function Signup(props) {
 	return (
 		<div className="container my-1">
 			<form onSubmit={handleFormSubmit} className="loginForm">
-				<h2>Signup</h2>
+				<h2>Login</h2>
+
 				<div className="flex-row space-between my-2">
-					<label htmlFor="username">Username:</label>
-					<input
-						placeholder="First"
-						name="username"
-						type="username"
-						id="username"
-						onChange={handleChange}
-					/>
-				</div>
-				<div className="flex-row space-between my-2">
-					<label htmlFor="email">Email:</label>
+					<label htmlFor="email">Email address:</label>
 					<input
 						placeholder="youremail@test.com"
 						name="email"
@@ -62,6 +55,11 @@ function Signup(props) {
 						onChange={handleChange}
 					/>
 				</div>
+				{error ? (
+					<div>
+						<p className="error-text">The provided credentials are incorrect</p>
+					</div>
+				) : null}
 				<div className="flex-row flex-end">
 					<button type="submit">Submit</button>
 				</div>
@@ -70,4 +68,4 @@ function Signup(props) {
 	);
 }
 
-export default Signup;
+export default Login;

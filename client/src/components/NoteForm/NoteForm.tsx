@@ -1,25 +1,40 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { FetchResult, useMutation } from "@apollo/client";
 import { ADD_NOTE } from "../../utils/mutations";
 import "./NoteForm.css";
 import { RichTextEditor } from "@mantine/rte";
+import { NoteType as Note } from "../../utils/typeDefs";
 
-const NoteForm = ({ lat, long, setNotes, notes }) => {
+type NoteFormProps = {
+	lat: number;
+	long: number;
+	setNotes: (notes: Note[]) => void;
+	notes: Note[];
+};
+const NoteForm: React.FC<NoteFormProps> = ({ lat, long, setNotes, notes }) => {
 	const [noteText, onChange] = useState("");
-	const [addNote] = useMutation(ADD_NOTE);
+	const [addNote] = useMutation<Note>(ADD_NOTE);
 
-	const handleFormSubmit = async (event) => {
+	const handleFormSubmit: React.FormEventHandler<HTMLFormElement> = async (
+		event
+	) => {
 		event.preventDefault();
 		try {
-			const note = await addNote({
+			let note:
+				| Note
+				| FetchResult<
+						Record<string, any>,
+						Record<string, any>,
+						Record<string, any>
+				  > = await addNote({
 				variables: {
 					text: noteText,
 					latitude: lat,
 					longitude: long,
 				},
 			});
-			console.log(note.data.addNote);
-			setNotes([...notes, note.data.addNote]);
+
+			setNotes([...notes, note?.data?.addNote]);
 			onChange("");
 		} catch (e) {
 			console.error(e);

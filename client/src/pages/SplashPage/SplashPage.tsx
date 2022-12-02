@@ -2,7 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./SplashPage.css";
 
-const SplashPage = ({
+type SplashPageProps = {
+	handleLocation: () => void;
+	setLatitude: (num: number) => void;
+	setLongitude: (num: number) => void;
+	setLocationKnown: (bool: boolean) => void;
+};
+
+const SplashPage: React.FC<SplashPageProps> = ({
 	handleLocation,
 	setLatitude,
 	setLongitude,

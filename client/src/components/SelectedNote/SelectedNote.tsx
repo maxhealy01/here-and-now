@@ -7,13 +7,22 @@ import CommentForm from "../CommentForm/CommentForm";
 import { useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
+import { NoteType as Note, CommentType } from "../../utils/typeDefs";
 
-const SelectedNote = ({ selectedNote, setSelectedNote }) => {
-	const note = selectedNote;
+type SelectedNoteProps = {
+	selectedNote: Note;
+	setSelectedNote: (note: Note) => void;
+};
+
+const SelectedNote: React.FC<SelectedNoteProps> = ({
+	selectedNote,
+	setSelectedNote,
+}) => {
+	const note: Note = selectedNote;
 	const time = note.createdAt;
 
 	const [comment, setComment] = useState("");
-	const [comments, setComments] = useState(note.comments);
+	const [comments, setComments] = useState<CommentType[]>(note.comments);
 
 	// Set logic for displaying the Comments and input form
 	const [openComments, setOpenComments] = useState(false);
@@ -31,7 +40,7 @@ const SelectedNote = ({ selectedNote, setSelectedNote }) => {
 				<TimeAgo className="noteHeaderItem" datetime={time} />
 				<button
 					className="ex-off noteHeaderItem"
-					onClick={() => setSelectedNote("")}
+					onClick={() => setSelectedNote({} as Note)}
 				>
 					X
 				</button>
@@ -41,7 +50,6 @@ const SelectedNote = ({ selectedNote, setSelectedNote }) => {
 				readOnly={true}
 				value={note.text}
 				theme={"bubble"}
-				disable
 			/>
 			<div className="noteBottom">
 				<button onClick={() => setOpenComments(!openComments)}>
@@ -56,7 +64,7 @@ const SelectedNote = ({ selectedNote, setSelectedNote }) => {
 			{openComments && (
 				<div className="commentWindow">
 					{comments.map((c, index) => {
-						return <Comment key={c._id} c={c} index={index} />;
+						return <Comment key={c.text} c={c} index={index} />;
 					})}
 					<CommentForm
 						setComments={setComments}

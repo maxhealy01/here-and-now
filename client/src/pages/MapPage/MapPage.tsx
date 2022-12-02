@@ -2,8 +2,18 @@ import React from "react";
 import WrappedMap from "../../components/Map/Map";
 import NoteForm from "../../components/NoteForm/NoteForm";
 import SelectedNote from "../../components/SelectedNote/SelectedNote";
+import { NoteType as Note } from "../../utils/typeDefs";
 
-const MapPage = ({
+type MapPageProps = {
+	setSelectedNote: (note: Note) => void;
+	selectedNote: Note;
+	setNotes: (notes: Note[]) => void;
+	notes: Note[];
+	latitude: number;
+	longitude: number;
+};
+
+const MapPage: React.FC<MapPageProps> = ({
 	setSelectedNote,
 	selectedNote,
 	setNotes,
@@ -25,7 +35,7 @@ const MapPage = ({
 				mapElement={<div style={{ height: `100%` }} />}
 			/>
 			<div className="notesOrComments">
-				{selectedNote ? (
+				{selectedNote.text ? (
 					<SelectedNote
 						selectedNote={selectedNote}
 						setSelectedNote={setSelectedNote}
