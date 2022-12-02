@@ -1,6 +1,7 @@
 import { Types } from "mongoose";
 
 export interface NoteType {
+	_id: string;
 	createdAt: string;
 	latitude: number;
 	longitude: number;
@@ -10,6 +11,7 @@ export interface NoteType {
 }
 
 export interface CommentType {
+	_id: string;
 	createdAt: string;
 	text: string;
 	username: string;

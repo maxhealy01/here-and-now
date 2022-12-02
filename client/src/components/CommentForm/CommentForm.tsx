@@ -2,13 +2,28 @@ import React from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../../utils/mutations";
 
+import { CommentType as Comment, NoteType as Note } from "../../utils/typeDefs";
+
 import "./CommentForm.css";
 
-const CommentForm = ({ setComments, selectedNote, comment, setComment }) => {
+interface CommentFormProps {
+	setComments: (comments: Comment[]) => void;
+	selectedNote: Note;
+	comment: string;
+	setComment: (comment: string) => void;
+}
+const CommentForm: React.FC<CommentFormProps> = ({
+	setComments,
+	selectedNote,
+	comment,
+	setComment,
+}) => {
 	// Create logic for adding a comment to the note
 	const [newComment] = useMutation(ADD_COMMENT);
 
-	const handleCommentSubmit = async (e) => {
+	const handleCommentSubmit: React.MouseEventHandler<
+		HTMLButtonElement
+	> = async (e) => {
 		e.preventDefault();
 
 		let updatedNote = await newComment({

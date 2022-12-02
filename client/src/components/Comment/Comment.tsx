@@ -2,8 +2,14 @@ import React from "react";
 import TimeAgo from "timeago-react";
 import "./Comment.css";
 
-const Comment = ({ c, index }) => {
-	const { text, username, createdAt } = c;
+import { CommentType } from "../../utils/typeDefs";
+
+interface CommentProps {
+	comment: CommentType;
+	index: number;
+}
+const Comment: React.FC<CommentProps> = ({ comment, index }) => {
+	const { text, username, createdAt } = comment;
 	const time = createdAt;
 
 	// Add alternate shading for easy comment visibility

@@ -63,8 +63,10 @@ const SelectedNote: React.FC<SelectedNoteProps> = ({
 			</div>
 			{openComments && (
 				<div className="commentWindow">
-					{comments.map((c, index) => {
-						return <Comment key={c.text} c={c} index={index} />;
+					{comments.map((comment, index) => {
+						return (
+							<Comment key={comment._id} comment={comment} index={index} />
+						);
 					})}
 					<CommentForm
 						setComments={setComments}

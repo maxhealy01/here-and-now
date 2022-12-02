@@ -32,24 +32,28 @@ const Home = () => {
 	if (Auth.loggedIn()) {
 		handleLocation();
 	}
-	let exampleNotes;
+	let exampleNotes: Note[];
 
 	useEffect(() => {
 		// Create example notes based on the user's location (for demo purposes)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		exampleNotes = [
 			{
 				comments: [
 					{
+						_id: Math.random().toString(),
 						createdAt: "1666735337581",
 						text: "I can totally agree with that.",
 						username: "ricky44",
 					},
 					{
+						_id: Math.random().toString(),
 						createdAt: "1666735344330",
 						text: "I've always felt the same :)",
 						username: "cherryblossomgirl",
 					},
 				],
+				_id: Math.random().toString(),
 				createdAt: "1665337808309",
 				latitude: latitude + 0.005,
 				longitude: longitude + 0.0025,
@@ -59,11 +63,13 @@ const Home = () => {
 			{
 				comments: [
 					{
+						_id: Math.random().toString(),
 						createdAt: "1664948211135",
 						text: "It's my favorite time of year",
 						username: "wanderer4011",
 					},
 				],
+				_id: Math.random().toString(),
 				createdAt: "1664946083084",
 				latitude: latitude - 0.0065,
 				longitude: longitude - 0.0055,
@@ -73,21 +79,25 @@ const Home = () => {
 			{
 				comments: [
 					{
+						_id: Math.random().toString(),
 						createdAt: "1638054925319",
 						text: "Whoa",
 						username: "suss36",
 					},
 					{
+						_id: Math.random().toString(),
 						createdAt: "1658888226747",
 						text: "That's too much, man",
 						username: "sickoModeJonny",
 					},
 					{
+						_id: Math.random().toString(),
 						createdAt: "1659223024369",
 						text: "It's my favorite time of year",
 						username: "watcherOfTheWinds",
 					},
 				],
+				_id: Math.random().toString(),
 				createdAt: "1638053694562",
 				latitude: latitude + 0.035,
 				longitude: longitude - 0.0075,
@@ -96,6 +106,7 @@ const Home = () => {
 			},
 			{
 				comments: [],
+				_id: Math.random().toString(),
 				createdAt: "1667328418468",
 				latitude: latitude - 0.0025,
 				longitude: longitude - 0.0075,
@@ -103,6 +114,7 @@ const Home = () => {
 				username: "PontificationMan",
 			},
 			{
+				_id: Math.random().toString(),
 				comments: [],
 				createdAt: "1638053442251",
 				latitude: latitude + 0.0035,
@@ -111,6 +123,7 @@ const Home = () => {
 				username: "loneLookerOuter",
 			},
 			{
+				_id: Math.random().toString(),
 				comments: [],
 				createdAt: "1638053442251",
 				latitude: latitude - 0.0075,
@@ -119,6 +132,7 @@ const Home = () => {
 				username: "josephine84",
 			},
 			{
+				_id: Math.random().toString(),
 				comments: [],
 				createdAt: "1638053442251",
 				latitude: latitude + 0.0035,
@@ -127,6 +141,7 @@ const Home = () => {
 				username: "LovelornFella",
 			},
 			{
+				_id: Math.random().toString(),
 				comments: [],
 				createdAt: "1638053442251",
 				latitude: latitude + 0.0005,
