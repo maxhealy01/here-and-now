@@ -3,7 +3,7 @@ import { FetchResult, useMutation } from "@apollo/client";
 import { ADD_NOTE } from "../../utils/mutations";
 import "./NoteForm.css";
 import { RichTextEditor } from "@mantine/rte";
-import { NoteType as Note } from "../../utils/typeDefs";
+import { NoteType as Note } from "../../utils/types";
 
 type NoteFormProps = {
 	lat: number;
@@ -11,7 +11,7 @@ type NoteFormProps = {
 	setNotes: (notes: Note[]) => void;
 	notes: Note[];
 };
-const NoteForm: React.FC<NoteFormProps> = ({ lat, long, setNotes, notes }) => {
+const NoteForm = ({ lat, long, setNotes, notes }: NoteFormProps) => {
 	const [noteText, onChange] = useState("");
 	const [addNote] = useMutation<Note>(ADD_NOTE);
 
@@ -34,6 +34,7 @@ const NoteForm: React.FC<NoteFormProps> = ({ lat, long, setNotes, notes }) => {
 				},
 			});
 
+			console.log(note.data);
 			setNotes([...notes, note?.data?.addNote]);
 			onChange("");
 		} catch (e) {

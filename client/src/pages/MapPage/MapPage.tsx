@@ -1,26 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import WrappedMap from "../../components/Map/Map";
 import NoteForm from "../../components/NoteForm/NoteForm";
 import SelectedNote from "../../components/SelectedNote/SelectedNote";
-import { NoteType as Note } from "../../utils/typeDefs";
+import { NoteType as Note } from "../../utils/types";
 
 type MapPageProps = {
-	setSelectedNote: (note: Note) => void;
-	selectedNote: Note;
 	setNotes: (notes: Note[]) => void;
 	notes: Note[];
 	latitude: number;
 	longitude: number;
 };
 
-const MapPage: React.FC<MapPageProps> = ({
-	setSelectedNote,
-	selectedNote,
-	setNotes,
-	notes,
-	latitude,
-	longitude,
-}) => {
+const MapPage = ({ setNotes, notes, latitude, longitude }: MapPageProps) => {
+	const [selectedNote, setSelectedNote] = useState<Note | null>(null);
+
 	return (
 		<div className="map">
 			<WrappedMap
@@ -35,7 +28,7 @@ const MapPage: React.FC<MapPageProps> = ({
 				mapElement={<div style={{ height: `100%` }} />}
 			/>
 			<div className="notesOrComments">
-				{selectedNote.text ? (
+				{selectedNote ? (
 					<SelectedNote
 						selectedNote={selectedNote}
 						setSelectedNote={setSelectedNote}

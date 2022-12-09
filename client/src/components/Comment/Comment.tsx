@@ -2,7 +2,7 @@ import React from "react";
 import TimeAgo from "timeago-react";
 import "./Comment.css";
 
-import { CommentType } from "../../utils/typeDefs";
+import { CommentType } from "../../utils/types";
 
 interface CommentProps {
 	comment: CommentType;

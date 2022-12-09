@@ -2,22 +2,22 @@ import React from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../../utils/mutations";
 
-import { CommentType as Comment, NoteType as Note } from "../../utils/typeDefs";
+import { CommentType as Comment, NoteType as Note } from "../../utils/types";
 
 import "./CommentForm.css";
 
 interface CommentFormProps {
-	setComments: (comments: Comment[]) => void;
-	selectedNote: Note;
-	comment: string;
-	setComment: (comment: string) => void;
+	readonly setComments: (comments: Comment[]) => void;
+	readonly selectedNote: Note;
+	readonly comment: string;
+	readonly setComment: (comment: string) => void;
 }
-const CommentForm: React.FC<CommentFormProps> = ({
+const CommentForm = ({
 	setComments,
 	selectedNote,
 	comment,
 	setComment,
-}) => {
+}: CommentFormProps) => {
 	// Create logic for adding a comment to the note
 	const [newComment] = useMutation(ADD_COMMENT);
 

@@ -7,11 +7,11 @@ import CommentForm from "../CommentForm/CommentForm";
 import { useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
-import { NoteType as Note, CommentType } from "../../utils/typeDefs";
+import { NoteType as Note, CommentType } from "../../utils/types";
 
 type SelectedNoteProps = {
 	selectedNote: Note;
-	setSelectedNote: (note: Note) => void;
+	setSelectedNote: (note: Note | null) => void;
 };
 
 const SelectedNote: React.FC<SelectedNoteProps> = ({
@@ -40,7 +40,10 @@ const SelectedNote: React.FC<SelectedNoteProps> = ({
 				<TimeAgo className="noteHeaderItem" datetime={time} />
 				<button
 					className="ex-off noteHeaderItem"
-					onClick={() => setSelectedNote({} as Note)}
+					onClick={() => {
+						setSelectedNote(null);
+						setOpenComments(false);
+					}}
 				>
 					X
 				</button>

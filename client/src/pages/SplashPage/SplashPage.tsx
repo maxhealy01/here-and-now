@@ -4,16 +4,15 @@ import "./SplashPage.css";
 
 type SplashPageProps = {
 	handleLocation: () => void;
-	setLatitude: (num: number) => void;
-	setLongitude: (num: number) => void;
-	setLocationKnown: (bool: boolean) => void;
+	setCoordinates: (coordinates: {
+		latitude: number;
+		longitude: number;
+	}) => void;
 };
 
 const SplashPage: React.FC<SplashPageProps> = ({
 	handleLocation,
-	setLatitude,
-	setLongitude,
-	setLocationKnown,
+	setCoordinates,
 }) => {
 	return (
 		<div className="splashPage">
@@ -35,9 +34,7 @@ const SplashPage: React.FC<SplashPageProps> = ({
 			</button>
 			<button
 				onClick={() => {
-					setLatitude(30.3131266);
-					setLongitude(-97.6709167);
-					setLocationKnown(true);
+					setCoordinates({ latitude: 30.3131266, longitude: -97.6709167 });
 				}}
 			>
 				Check out the map without providing location

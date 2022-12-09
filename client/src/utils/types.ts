@@ -1,5 +1,3 @@
-import { Types } from "mongoose";
-
 export interface NoteType {
 	_id: string;
 	createdAt: string;

@@ -22,7 +22,7 @@ function Login() {
 		}
 	};
 
-	const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
 		setFormState({
 			...formState,
