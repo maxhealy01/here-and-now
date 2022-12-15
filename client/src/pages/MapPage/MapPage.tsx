@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WrappedMap from "../../components/Map/Map";
+import Map from "../../components/MapTwo/Map";
 import NoteForm from "../../components/NoteForm/NoteForm";
 import SelectedNote from "../../components/SelectedNote/SelectedNote";
 import { NoteType as Note } from "../../utils/types";
@@ -16,7 +17,13 @@ const MapPage = ({ setNotes, notes, latitude, longitude }: MapPageProps) => {
 
 	return (
 		<div className="map">
-			<WrappedMap
+			<Map
+				setSelectedNote={setSelectedNote}
+				notes={notes}
+				latitude={latitude}
+				longitude={longitude}
+			/>
+			{/* <WrappedMap
 				setSelectedNote={setSelectedNote}
 				notes={notes}
 				latitude={latitude}
@@ -26,7 +33,7 @@ const MapPage = ({ setNotes, notes, latitude, longitude }: MapPageProps) => {
 				loadingElement={<div style={{ height: `100%` }} />}
 				containerElement={<div style={{ height: `400px` }} />}
 				mapElement={<div style={{ height: `100%` }} />}
-			/>
+			/> */}
 			<div className="notesOrComments">
 				{selectedNote ? (
 					<SelectedNote

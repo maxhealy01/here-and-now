@@ -1,0 +1,28 @@
+.map-container {
+	height: 400px;
+}
+
+.mapboxgl-ctrl-attrib-inner,
+.mapboxgl-ctrl-attrib-button {
+	opacity: 0;
+}
+
+.mapboxgl-marker {
+	background-size: cover;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.red {
+	background-image: url("https://maps.google.com/mapfiles/ms/icons/red.png");
+}
+.orange {
+	background-image: url("https://maps.google.com/mapfiles/ms/icons/orange.png");
+}
+.yellow {
+	background-image: url("https://maps.google.com/mapfiles/ms/icons/yellow.png");
+}
+.green {
+	background-image: url("https://maps.google.com/mapfiles/ms/icons/green.png");
+}

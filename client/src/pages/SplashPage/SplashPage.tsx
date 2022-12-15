@@ -16,9 +16,7 @@ const SplashPage: React.FC<SplashPageProps> = ({
 }) => {
 	return (
 		<div className="splashPage">
-			<p>
-				Here and Now uses Google Maps to connect its users in time and space.
-			</p>
+			<p>Here and Now uses Mapbox to connect its users in time and space.</p>
 			<p>
 				Go to the map page to see what people around you have been saying,
 				thinking, and feeling!
